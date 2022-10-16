@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<class>
+
+    <namespace>NVL_AI</namespace>
+    <solution>GeneticLib</solution>
+    <name>CandidateSelector</name>
+    <description>Utility: Use K-Tournament to select Candidates with a bias towards a greater score</description>
+
+    <includes>
+        <include name="random" namespace="std" local="false" />
+        <include name="algorithm" namespace="std" local="false" />
+        <include name="iostream" namespace="std" local="false" />
+    </includes>
+
+    <variables>
+        <variable type="int" name="poolSize" code="00" />
+    </variables>
+
+    <constructors>
+        <constructor type="custom">
+            <parameter type="int" name="poolSize" description="The size of the pool that we are pulling out of the population" />
+        </constructor>
+    </constructors>
+
+    <methods>
+        <method section="Selection" access="public" return="CandidateBase *" name="Select" description="Select a candidate from a population with a bias towards a great score" inline="false">
+            <parameter type="vector<CandidateBase *>&" name="population" description="The population that we are sampling from" />
+        </method>
+    </methods>
+
+    <tests>
+        <test name="verify_selection_distrib" description="Confirm that we are selecting the correct ratio of elements" exception="false" />
+    </tests>
+
+</class>

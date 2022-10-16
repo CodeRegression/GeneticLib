@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<class>
+
+    <namespace>NVL_AI</namespace>
+    <solution>GeneticLib</solution>
+    <name>CandidateBase</name>
+    <description>Model: CandidateBase solution to the problem we are trying to find an answer for</description>
+
+    <includes>
+        <include name="iostream" namespace="std" local="false" />
+    </includes>
+
+    <variables>
+        <variable type="double" name="score" code="11" />
+    </variables>
+
+    <constructors>
+        <constructor type="auto" />
+    </constructors>
+
+</class>

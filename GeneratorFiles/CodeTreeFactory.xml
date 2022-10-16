@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_AI</namespace>
+<solution>GeneticLib</solution>
+<name>CodeTreeFactory</name>
+<description>A factory for generating random code trees</description>
+
+<includes>
+    <include name="vector" namespace="std" local="false" />
+    <include name="iostream" namespace="std" local="false" />
+    <include name="NVLib/RandomUtils.h" local="false" />
+    <include name="CodeTree.h" local="true" />
+    <include name="DecisionNode.h" local="true" />
+    <include name="LiteralNode.h" local="true" />
+</includes>
+
+<methods>
+
+    <!-- Logic to generate a code tree -->
+    <method section="Entry Point" modifiers="static" access="public" return="CodeTree *" name="BuildTree" description="Generates a random code tree" inline="false">
+        <parameter type="const string&" name="functionName" description="The function that we are generating" />
+        <parameter type="const vector<string>&" name="paramNames" description="The list of output parameter names" />
+        <parameter type="const vector<double>&" name="outputs" description="The list of associated output values" /> 
+        <parameter type="int" name="depthLimit" description="A description of the elements within the system" /> 
+        <parameter type="int" name="statementLimit" description="A limit as to how long a statement can be" /> 
+    </method>    
+
+    <!-- Helper: Generate statements-->
+    <method section="Helpers" modifiers="static " access="public" return="BooleanStatement *" name="GetStatement" description="Generate a statement" inline="false">
+        <parameter type="int" name="paramCount" description="The number of parameters we have access to" />
+        <parameter type="int" name="maxLength" description="A limit on the number of statements we can have" />
+    </method>  
+
+    <!-- Helper: Generate Literal-->
+    <method section="Helpers" modifiers="static " access="public" return="LiteralNode *" name="GetLiteralNode" description="Generate a literal node" inline="false">
+        <parameter type="vector<double>&" name="outputs" description="A list of legal outputs" />
+    </method>  
+
+   <!-- Helper: Generate Decision-->
+    <method section="Helpers" modifiers="static " access="public" return="DecisionNode *" name="GetDecisionNode" description="Generate a decision node" inline="false">
+        <parameter type="vector<double>&" name="outputs" description="A list of legal outputs" />
+    </method>  
+
+</methods>
+
+<tests>
+    <test name="depth_limit_1" description="Confirm the respect of a level 1 depth limit" exception="false" />
+    <test name="depth_limit_2" description="Confirm the respect of a level 2 depth limit" exception="false" />
+</tests> 
+
+</class>

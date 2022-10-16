@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_AI</namespace>
+<solution>GeneticLib</solution>
+<name>Mutator</name>
+<description>The logic to mutate a given code tree</description>
+
+<includes>
+    <include name="iostream" namespace="std" local="false" />
+    <include name="CodeTree.h" local="true" />
+</includes>
+
+<variables>
+    <variable type="double" name="treeProb" code="00" />
+</variables>
+
+<constructors>
+
+    <!-- Main Cosntructor -->
+    <constructor type="custom" inline="false">
+        <parameter type="double" name="treeProb" description="The probability that the tree gets altered" />
+    </constructor>
+
+</constructors>
+
+<methods>
+
+    <!-- The actual mutate function -->
+    <method section="Mutate" access="public" return="bool" name="Mutate" description="Performs the mutation functionality on the given code tree" inline="false">
+        <parameter type="CodeTree *" name="tree" description="The code tree that we are mutating" />
+    </method>    
+
+    <!-- Generator of selections -->
+    <method section="Helpers" modifiers="virtual" access="protected" return="bool" name="GetSelection" description="Retrieves the given selection" inline="false" />
+ 
+    <!-- Retrieves a collection of all the decision nodes -->
+    <method section="Helpers" access="protected" return="int" name="GetDecisionNodes" description="Retrieves the list of decision nodes" inline="false">
+        <parameter type="CodeTree *" name="tree" description="The code tree that we are getting the values for" />
+    </method>       
+
+</methods>
+
+<tests>
+    <test name="no_change" description="Test the case in which nothing happens" exception="false" />
+    <test name="operator_changed" description="Test the case when the mutator changes an operation" exception="false" />
+    <test name="conjunction_changed" description="Test the case when a conjunction is changed" exception="false" />
+</tests> 
+
+</class>

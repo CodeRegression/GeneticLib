@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+
+<class base="NodeBase">
+
+<namespace>NVL_AI</namespace>
+<solution>GeneticLib</solution>
+<name>LiteralNode</name>
+<description>Defines a node for returning a literal</description>
+
+<includes>
+    <include name="vector" namespace="std" local="false" />
+    <include name="iostream" namespace="std" local="false" />
+    <include name="NodeBase.h" local="true" />
+</includes>
+
+<variables>
+    <variable type="double" name="value" code="10" />
+</variables>
+
+<constructors>
+ 
+    <constructor type="custom" inline="false">
+        <parameter type="double" name="value" description="The value that this literal node needs to return" />
+    </constructor>
+
+</constructors>
+
+<methods>
+
+    <method section="Methods" modifiers="virtual" access="public" return="double" name="GetValue" description="Retrieve the value of the node" inline="false">
+        <parameter type="vector<double> &" name="parameters" description="The parameters associated with the application" />
+    </method>    
+
+    <method section="Methods" modifiers="virtual" access="public" return="double" name="GetCode" description="Retrieve the source code snippet associated with this node" inline="false" /> 
+
+</methods>
+
+</class>

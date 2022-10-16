@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_AI</namespace>
+<solution>GeneticLib</solution>
+<name>NodeBase</name>
+<description>A base class for a node within the system</description>
+
+<includes>
+    <include name="vector" namespace="std" local="false" />
+    <include name="iostream" namespace="std" local="false" />
+</includes>
+
+<constructors>
+    <constructor type="empty" inline="true" />
+</constructors>
+
+<methods>
+
+    <method section="Methods" modifiers="virtual" access="public" return="double" name="GetValue" description="Retrieve the value of the node" inline="true">
+        <parameter type="vector<double> &" name="parameters" description="The parameters associated with the application" />
+    </method>    
+
+    <method section="Methods" modifiers="virtual" access="public" return="double" name="GetCode" description="Retrieve the source code snippet associated with this node" inline="true" /> 
+
+</methods>
+
+</class>

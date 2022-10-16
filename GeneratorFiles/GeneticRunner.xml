@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<class terminator="true">
+
+    <namespace>NVL_AI</namespace>
+    <solution>GeneticLib</solution>
+    <name>GeneticRunner</name>
+    <description>Utility: A runner utility for the application</description>
+
+    <includes>
+        <include name="iostream" namespace="std" local="false" />
+        <include name="CandidateFactoryBase.h" local="true" />
+        <include name="CandidateSelector.h" local="true" />
+    </includes>
+
+    <variables>
+        <variable type="CandidateFactoryBase *" name="factory" code="00" />
+        <variable type="vector<CandidateBase *>" name="population" code="00" />
+        <variable type="CandidateSelector *" name="selector" code="00" />
+    </variables>
+
+    <constructors>
+ 
+        <constructor type="custom">
+            <parameter type="CandidateFactoryBase *" name="factory" description="A factory for spawning new candidates" />
+            <parameter type="int" name="populationSize" description="The size of the population that we want to use" />
+            <parameter type="int" name="sampleSize" description="The size of the sample to use for the k-tournament selection" />
+        </constructor>
+ 
+    </constructors>
+
+    <methods>
+
+        <!-- Main entry point for the application -->
+        <method section="Execution Logic" access="public" return="CandidateBase *" name="Run" description="Spawns the process" inline="false">
+            <parameter type="int" name="iterationMax" description="The maximum number of iterations to perform" />
+        </method>
+
+        <!-- Logic to create the next population-->
+        <method section="Generate Population" access="private" return="void" name="GetNextPopulation" description="Creates the next population in the system" inline="false">
+            <parameter type="vector<CandidateBase *>&" name="previousPopulation" description="The previous population that we are building from" />
+        </method>
+
+        <!-- Extract a winner from the current population -->
+        <method section="Find Winner" access="public" return="CandidateBase *" name="FindWinner" description="Find the winner from the provided population" inline="false">
+            <parameter type="vector<CandidateBase *>&" name="population" description="The population we are searching" />
+        </method>
+    </methods>
+
+    <tests>
+        <test name="operational_test" description="Tests the algorithm on a simple problem to confirm that it works" exception="false" />
+    </tests>
+
+</class>

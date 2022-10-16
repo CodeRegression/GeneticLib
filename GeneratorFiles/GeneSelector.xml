@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_AI</namespace>
+<solution>GeneticLib</solution>
+<name>GeneSelector</name>
+<description>Select the associated Genes</description>
+
+<includes>
+    <include name="iostream" namespace="std" local="false" />
+    <include name="NVLib/RandomUtils.h" local="false" />
+</includes>
+
+<constructors>
+    <constructor type="empty" inline="true" />
+</constructors>
+
+<methods>
+
+    <!-- Next -->
+    <method section="Next" modifiers="virtual" access="public" return="bool" name="Next" description="Get the next boolean choice" inline="true" />
+
+</methods>
+
+</class>

@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<class>
+
+    <namespace>NVL_AI</namespace>
+    <solution>GeneticLib</solution>
+    <name>ScoreFinderBase</name>
+    <description>Utility: Evaluates a Candidate solutions and gives it a suitability score</description>
+
+    <includes>
+        <include name="iostream" namespace="std" local="false" />
+        <include name="../Model/CandidateBase.h" local="true" />
+    </includes>
+
+    <constructors>
+        <constructor type="empty" inline="true" />
+    </constructors>
+
+    <methods>
+        <method section="Entry Point" access="public" return="double" name="GetScore" description="Retrieves fit score associated with a candidate solution" inline="true">
+            <parameter type="CandidateBase *" name="candidate" description="The candidate that we are getting a score for" />
+        </method>
+    </methods>
+
+</class>

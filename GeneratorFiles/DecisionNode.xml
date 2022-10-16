@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+
+<class terminator="true" base="NodeBase">
+
+<namespace>NVL_App</namespace>
+<solution>GeneticLib</solution>
+<name>DecisionNode</name>
+<description>A decision node within the system</description>
+
+<includes>
+    <include name="iostream" namespace="std" local="false" />
+    <include name="NodeBase.h" local="true" />
+    <include name="BooleanStatement.h" local="true" />
+</includes>
+
+<variables>
+    <variable type="BooleanStatement *" name="statement" code="10" />
+    <variable type="NodeBase *" name="trueNode" code="10" />
+    <variable type="NodeBase *" name="falseNode" code="10" />
+    <variable type="int" name="level" code="10" />
+</variables>
+
+<constructors>
+
+    <constructor type="custom" inline="false">
+        <parameter type="BooleanStatement *" name="statement" description="The statement that the decision needs to evaluate" />
+        <parameter type="int" name="level" description="The level of the node" />
+    </constructor>
+
+</constructors>
+
+<methods>
+
+    <!-- Add True Node-->
+    <method section="Node" access="public" return="void" name="SetTrueNode" description="Sets the true node of the decision" inline="false">
+        <parameter type="NodeBase *" name="node" description="The node we are setting to the true node" />
+    </method>    
+
+
+    <!-- Add False Node-->
+    <method section="Node" access="public" return="void" name="SetFalseNode" description="Sets the false node of the decision" inline="false">
+        <parameter type="NodeBase *" name="node" description="The node we are setting to be the false node" />
+    </method>    
+
+    <!-- Evaluate -->
+    <method section="Evaluate" modifiers="virtual" access="public" return="double" name="Evaluate" description="Retrieve the value of the node" inline="false">
+        <parameter type="vector&gt;double&lt; &amp;" name="parameters" description="The parameters associated with the application" />
+    </method>    
+
+    <!-- Generate Code -->
+    <method section="Methods" modifiers="virtual" access="public" return="double" name="GetCode" description="Retrieve the source code snippet associated with this node" inline="false"> 
+        <parameter type="vector&gt;string&lt; &amp;" name="names" description="The parameters associated with the application" />
+    </method>    
+
+</methods>
+
+<tests>
+    <test name="verify_evaluation" description="Verify that the evaluation was correct" exception="false" />
+    <test name="verify_code" description="Verify that the code generation is correct" exception="false" />
+</tests> 
+
+</class>

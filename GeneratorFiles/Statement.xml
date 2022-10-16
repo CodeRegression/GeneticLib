@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+
+<class terminator="true">
+
+<namespace>NVL_AI</namespace>
+<solution>GeneticLib</solution>
+<name>BooleanStatement</name>
+<description>A boolean statement that an if statement can evaluate</description>
+
+<includes>
+    <include name="vector" namespace="std" local="false" />
+    <include name="iostream" namespace="std" local="false" />
+    <include name="Comparison.h" local="true" />
+</includes>
+
+<variables>
+    <variable type="vector<Comparison *>" name="comparisons" code="10" />
+    <variable type="vector<Conjunction>" name="conjunctions" code="10" />
+</variables>
+
+<constructors>
+
+    <constructor type="custom" inline="false">
+        <parameter type="Comparison *" name="comparison" description="A comparison of parameters" />
+    </constructor>
+
+</constructors>
+
+<methods>
+
+    <!-- Add a New Comparison -->
+    <method section="Add" access="public" return="void" name="AddComparison" description="Add a new comparison to the statement" inline="false">
+        <parameter type="Conjunction" name="conjunction" description="The conjunction relating this statement with the previous one" />
+        <parameter type="Comparison *" name="comparison" description="The new comparison that we are adding" />
+    </method>    
+
+    <!-- Perform Evaluation -->
+    <method section="Evaluate" access="public" return="bool" name="Evaluate" description="Evaluate the statement" inline="false">
+        <parameter type="vector<double>&" name="params" description="The associated input parameters" />
+    </method>    
+
+    <!-- Generate Code -->
+    <method section="Generate Code" access="public" return="string" name="GenerateCode" description="Generate the code version of the system" inline="false">
+        <parameter type="vector<string>&" name="paramNames" description="The names of the parameters that we are using to perform the evaluation" />
+    </method>    
+
+</methods>
+
+<tests>
+    <!-- Evaluation Test -->
+    <test name="evaluation_test" description="Confirm that evaluation works correctly" exception="false" />
+
+    <!-- Code Generation Test -->
+    <test name="code_generation_test" description="Confirm that the code regeneration works correctly" exception="false" />
+</tests> 
+
+</class>

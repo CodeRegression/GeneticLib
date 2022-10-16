@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+
+<class terminator="true">
+
+<namespace>NVL_AI</namespace>
+<solution>GeneticLib</solution>
+<name>CodeTree</name>
+<description>A heurarchy of if statements designed to solve some problem</description>
+
+<includes>
+    <include name="vector" namespace="std" local="false" />
+    <include name="iostream" namespace="std" local="false" />
+    <include name="NodeBase.h" local="true" />
+</includes>
+
+<variables>
+    <variable type="NodeBase *" name="root" code="10" />
+    <variable type="string" name="functionName" code="10" />
+    <variable type="vector<string>" name="paramNames" code="10" />
+    <variable type="vector<double" name="outputValues" code="10" />
+</variables>
+
+<constructors>
+
+    <constructor type="auto" inline="false" />
+
+</constructors>
+
+<methods>
+
+    <!-- Generate code for the code tree -->
+    <method section="Code Generation" access="public" return="string" name="GetCode" description="Generates the code for the function" inline="false" />
+
+    <!-- Evaluate the solution, given a particular input -->
+    <method section="Evaluate" access="public" return="double" name="Evaluate" description="Evaluate the given solution" inline="false">
+        <parameter type="vector<double>" name="params" description="The parameters that we are evaluating against" />
+    </method>
+
+</methods>
+
+<tests>
+    <test name="generate_code" description="Evaluate the algorithms ability to generate code" exception="false" />
+    <test name="evaluate" description="Verify the evaluation" exception="false" />
+</tests> 
+
+</class>

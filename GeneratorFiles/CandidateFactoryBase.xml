@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<class terminator="true">
+
+    <namespace>NVL_AI</namespace>
+    <solution>GeneticLib</solution>
+    <name>CandidateFactoryBase</name>
+    <description>Utility: A factory type utility for generating new candidates</description>
+
+    <includes>
+        <include name="iostream" namespace="std" local="false" />
+        <include name="ScoreFinderBase.h" local="true" />
+        <include name="CandidateBase.h" local="true" />
+    </includes>
+
+    <variables>
+        <variable type="ScoreFinderBase *" name="scoreFinder" code="10" />
+    </variables>
+
+    <constructors>
+        <constructor type="custom" inline="false">
+            <parameter type="ScoreFinderBase *" name="scoreFinder" description="The score finder to use when generating candidate solution scores" />
+        </constructor>
+    </constructors>
+
+    <methods>
+        
+        <!-- Generate a random candidate -->
+        <method section="Random" access="public" modifier="virtual" return="CandidateBase *" name="Random" description="Generates a random candidate" inline="false" />
+
+        <!-- Generate a `bred` solution from two `parent` solutions using cross-over logic -->
+        <method section="Cross-Over" access="public" modifier="virtual" return="void" name="" description="" inline="true">
+            <parameter type="CandidateBase *" name="parent1" description="The first parent in the process" />
+            <parameter type="CandidateBase *" name="parent2" description="The secodn parent in the process" />
+        </method>
+
+    </methods>
+
+</class>

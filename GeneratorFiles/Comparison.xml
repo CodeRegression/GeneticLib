@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_AI</namespace>
+<solution>GeneticLib</solution>
+<name>Comparison</name>
+<description>Models the comparison between two parameters</description>
+
+<includes>
+    <include name="iostream" namespace="std" local="false" />
+</includes>
+
+<variables>
+    <variable type="int" name="param1" code="10" />
+    <variable type="int" name="param2" code="10" />
+    <variable type="Operation" name="operation" code="10" />
+</variables>
+
+<constructors>
+
+    <constructor type="auto" inline="true" />
+ 
+</constructors>
+
+<methods>
+
+    <!-- Evaluate -->
+    <method section="Evaluate" access="public" return="bool" name="GetValue" description="Evaluate the comparison expression" inline="false">
+        <parameter type="vector<double>&" name="params" description="The parameters that we are evaluating" />
+    </method>    
+
+    <!-- Code -->
+    <method section="Code" access="public" return="string" name="GetCode" description="Retrieve a code value of the expression" inline="false">
+        <parameter type="vector<string>" name="paramNames" description="The names of the parameters that we want to use in our code" />
+    </method>    
+
+</methods>
+
+</class>

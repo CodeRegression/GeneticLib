@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_App</namespace>
+<solution>GeneticLib</solution>
+<name>BreadthIterator</name>
+<description>An iterator that does a breadth first traversal of a CodeTree</description>
+
+<includes>
+    <include name="queue" namespace="std" local="false" />
+    <include name="iostream" namespace="std" local="false" />
+    <include name="CodeTree.h" local="true" />
+</includes>
+
+<variables>
+    <variable type="CodeTree *" name="tree" code="10" />
+    <variable type="queue<NodeBase *>" name="current" code="10" />
+    <variable type="queue<NodeBase *>" name="next" code="10" />
+</variables>
+
+<constructors>
+
+    <constructor type="custom" inline="false">
+        <parameter type="CodeTree *" name="tree" description="The tree that we traversing" />
+    </constructor>
+
+</constructors>
+
+<methods>
+
+    <!-- Find the next point -->
+    <method section="Next" access="public" return="NodeBase *" name="Next" description="Get the next element in the list" inline="false" />
+
+</methods>
+
+<tests>
+    <test name="test_iteration" description="Verify that the iteration is working correctly" exception="false" />
+</tests> 
+
+</class>
